@@ -199,7 +199,7 @@ dreamweaversoccersite.z13.web.core.windows.net
 ```text
 Type: CNAME
 Name: www
-Value: dreamweaversoccersite.z13.web.core.windows.net
+Value: [dreamweaversoccersite.z13.web.core.windows.net](https://dreamweaversoccersite.z5.web.core.windows.net/)
 TTL: Default
 ```
 
