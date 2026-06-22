@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soccer Site - Old vs New Comparison</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #0b63ce;
+    }
+
+    body {
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+        url("site-new/Image/background.jpg") center/cover no-repeat fixed;
+      background-attachment: fixed;
+    }
+
+    .comparison-header {
+      background: white;
+      border-bottom: 2px solid var(--primary-color);
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .comparison-header h1 {
+      color: var(--primary-color);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .view-controls {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .view-btn {
+      padding: 0.5rem 1.5rem;
+      border: 2px solid var(--primary-color);
+      background: white;
+      color: var(--primary-color);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .view-btn:hover,
+    .view-btn.active {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .comparison-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .version-panel {
+      background: white;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+    }
+
+    .version-label {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .version-panel:nth-child(2) .version-label {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+      display: block;
+    }
+
+    .single-view {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+      overflow: hidden;
+    }
+
+    .single-view .version-label {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .single-view.new .version-label {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .single-view iframe {
+      height: 1000px;
+    }
+
+    .info-banner {
+      background: #e7f3ff;
+      border-left: 4px solid var(--primary-color);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 0.25rem;
+    }
+
+    .info-banner strong {
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 1024px) {
+      .comparison-container {
+        grid-template-columns: 1fr;
+      }
+
+      .view-controls {
+        justify-content: flex-start;
+      }
+    }
+
+    .footer-nav {
+      text-align: center;
+      margin-top: 2rem;
+      padding: 2rem 1rem;
+      background: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer-nav a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: background 0.2s;
+    }
+
+    .footer-nav a:hover {
+      background: #0951a4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="comparison-header">
+      <div class="container">
+        <h1>⚽ Soccer Site - Old vs New Design</h1>
+        <p class="lead mb-3">Compare the original design with the new Bootstrap-enhanced version</p>
+        
+        <div class="info-banner">
+          <strong>💡 Tip:</strong> Switch between side-by-side comparison and full-page views to see the differences clearly!
+        </div>
+
+        <div class="view-controls">
+          <button class="view-btn active" onclick="showComparison()">📊 Side-by-Side</button>
+          <button class="view-btn" onclick="showOldOnly()">🕰️ Old Version Only</button>
+          <button class="view-btn" onclick="showNewOnly()">✨ New Version Only</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Side-by-side comparison view -->
+      <div id="comparisonView" class="comparison-container">
+        <div class="version-panel">
+          <div class="version-label">🕰️ Original Design</div>
+          <iframe src="site-old/Soccer.htm" title="Original Soccer Site"></iframe>
+        </div>
+        <div class="version-panel">
+          <div class="version-label">✨ New Bootstrap Design</div>
+          <iframe src="site-new/Soccer.htm" title="New Soccer Site with Bootstrap"></iframe>
+        </div>
+      </div>
+
+      <!-- Old version only view -->
+      <div id="oldOnlyView" class="single-view" style="display: none;">
+        <div class="version-label">🕰️ Original Design</div>
+        <iframe src="site-old/Soccer.htm" title="Original Soccer Site"></iframe>
+      </div>
+
+      <!-- New version only view -->
+      <div id="newOnlyView" class="single-view new" style="display: none;">
+        <div class="version-label">✨ New Bootstrap Design</div>
+        <iframe src="site-new/Soccer.htm" title="New Soccer Site with Bootstrap"></iframe>
+      </div>
+
+      <!-- Navigation footer -->
+      <div class="footer-nav">
+        <h5 class="mb-3">Quick Navigation</h5>
+        <a href="site-old/Soccer.htm" target="_blank">📖 Old Site (Full)</a>
+        <a href="site-new/Soccer.htm" target="_blank">🚀 New Site (Full)</a>
+        <a href="#" onclick="showComparison(); return false;">🔄 Back to Comparison</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showComparison() {
+      document.getElementById('comparisonView').style.display = 'grid';
+      document.getElementById('oldOnlyView').style.display = 'none';
+      document.getElementById('newOnlyView').style.display = 'none';
+      updateButtonStates('comparison');
+    }
+
+    function showOldOnly() {
+      document.getElementById('comparisonView').style.display = 'none';
+      document.getElementById('oldOnlyView').style.display = 'block';
+      document.getElementById('newOnlyView').style.display = 'none';
+      updateButtonStates('old');
+    }
+
+    function showNewOnly() {
+      document.getElementById('comparisonView').style.display = 'none';
+      document.getElementById('oldOnlyView').style.display = 'none';
+      document.getElementById('newOnlyView').style.display = 'block';
+      updateButtonStates('new');
+    }
+
+    function updateButtonStates(view) {
+      const buttons = document.querySelectorAll('.view-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      if (view === 'comparison') buttons[0].classList.add('active');
+      else if (view === 'old') buttons[1].classList.add('active');
+      else if (view === 'new') buttons[2].classList.add('active');
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

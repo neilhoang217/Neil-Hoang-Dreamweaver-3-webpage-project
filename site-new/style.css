@@ -1,0 +1,148 @@
+/* Bootstrap complementary styles for the Soccer pages */
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  color: #222;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+    url("Image/background.jpg") center/cover no-repeat fixed;
+  background-attachment: fixed;
+}
+
+.page-wrapper {
+  min-height: calc(100vh - 200px);
+}
+
+.site-header {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.site-header h1 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.navbar {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+  background: rgba(255,255,255,0.98);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12) !important;
+}
+
+.card-image img,
+.league-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+  object-fit: contain;
+}
+
+.league-image {
+  max-width: 260px;
+}
+
+.league-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.league-logos {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  align-items: center;
+}
+
+.league-logos img {
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.content p,
+.card p,
+.league-description {
+  margin: 0 0 1rem;
+  color: #555;
+}
+
+.card-title,
+.league h2 {
+  color: #212529;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #0b63ce;
+  border-color: #0b63ce;
+}
+
+.btn-primary:hover {
+  background-color: #0951a4;
+  border-color: #0951a4;
+}
+
+.btn-outline-primary {
+  color: #0b63ce;
+  border-color: #0b63ce;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0b63ce;
+  border-color: #0b63ce;
+}
+
+.text-white-50:hover {
+  color: #ffffff !important;
+  transition: color 0.2s;
+}
+
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-wrapper {
+    padding: 0.75rem 0.5rem 1.5rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+  
+  .card {
+    padding: 0.75rem;
+  }
+  
+  .btn-sm {
+    font-size: 0.85rem;
+  }
+}
